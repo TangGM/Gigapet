@@ -11,9 +11,11 @@ import AVFoundation
 
 class ViewController: UIViewController {
 
+    
     @IBOutlet weak var monsterImg: MonsterImg!
     @IBOutlet weak var foodImg: DragImg!
     @IBOutlet weak var heartImg: DragImg!
+    @IBOutlet weak var exploImg: ExploImg!
     
     @IBOutlet var penaltyiImg: UIImageView! //typo
     @IBOutlet var penalty2Img: UIImageView!
@@ -26,9 +28,11 @@ class ViewController: UIViewController {
     
     
     var penalties = 0
+    var love = 0
     var timer: NSTimer!
     var monsterHappy = false
     var currentItem: UInt32 = 0
+    var status = 0
     
     var musicPlayer: AVAudioPlayer!
     // use similar name for autocomplete search
@@ -40,6 +44,7 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+
 
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
@@ -85,6 +90,7 @@ class ViewController: UIViewController {
     
     func itemDroppedOnCharacter(notif: AnyObject) {
 
+
         monsterHappy = true
         startTimer()
         
@@ -94,9 +100,17 @@ class ViewController: UIViewController {
         heartImg.userInteractionEnabled = false
         
         if currentItem == 0 {
+            love += 2
             sfxHeart.play()
         } else {
+            love += 3
             sfxBite.play()
+        }
+        
+        if love >= 7 {
+            exploImg.hidden = false
+            exploImg.playExploAnimation()
+            NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "upgrade", userInfo: nil, repeats: false)
         }
     }
     
@@ -115,6 +129,7 @@ class ViewController: UIViewController {
         if !monsterHappy {
             
             penalties++
+            love--
             sfxSkull.play()
             
             if penalties == 1 {
@@ -165,6 +180,28 @@ class ViewController: UIViewController {
         restartBtn.hidden = false
         foodImg.alpha = DIM_ALPHA
         heartImg.alpha = DIM_ALPHA
+    }
+    
+    func upgrade() {
+    
+        exploImg.hidden = true
+//        monsterImg.hidden = true
+        status = 1
+        penalties = 0
+        penaltyiImg.alpha = DIM_ALPHA
+        penalty2Img.alpha = DIM_ALPHA
+        penalty3Img.alpha = DIM_ALPHA
+
+    }
+    
+    func downgrade() {
+        exploImg.hidden = false
+        exploImg.playReverseExploAnimation()
+        status = 0
+        penalties = 0
+        penaltyiImg.alpha = DIM_ALPHA
+        penalty2Img.alpha = DIM_ALPHA
+        penalty3Img.alpha = DIM_ALPHA
     }
     
     @IBAction func onRestartTapped(sender: AnyObject) {
