@@ -18,6 +18,7 @@ class ViewController: UIViewController {
     @IBOutlet var penaltyiImg: UIImageView! //typo
     @IBOutlet var penalty2Img: UIImageView!
     @IBOutlet var penalty3Img: UIImageView!
+    @IBOutlet var restartBtn: UIButton!
     
     let DIM_ALPHA: CGFloat = 0.2
     let OPAQUE: CGFloat = 1.0
@@ -161,7 +162,20 @@ class ViewController: UIViewController {
         timer.invalidate()
         monsterImg.playDeathAnimation()
         sfxDeath.play()
+        restartBtn.hidden = false
+        foodImg.alpha = DIM_ALPHA
+        heartImg.alpha = DIM_ALPHA
     }
+    
+    @IBAction func onRestartTapped(sender: AnyObject) {
+        
+        penalties = 0
+        viewDidLoad()
+        restartBtn.hidden = true
+        monsterImg.playIdleAnimation()
+        
+    }
+    
     
 
 }

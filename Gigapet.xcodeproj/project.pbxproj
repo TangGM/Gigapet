@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		7E6CF2CC1CE8DC4C002EE6F2 /* Minecraft.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 7E6CF2CB1CE8DC4C002EE6F2 /* Minecraft.ttf */; };
 		7E78E19F1CE7541A00377F2D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E78E19E1CE7541A00377F2D /* AppDelegate.swift */; };
 		7E78E1A11CE7541A00377F2D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7E78E1A01CE7541A00377F2D /* ViewController.swift */; };
 		7E78E1A41CE7541A00377F2D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7E78E1A21CE7541A00377F2D /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		7E6CF2CB1CE8DC4C002EE6F2 /* Minecraft.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = Minecraft.ttf; sourceTree = "<group>"; };
 		7E78E19B1CE7541A00377F2D /* Gigapet.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Gigapet.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		7E78E19E1CE7541A00377F2D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		7E78E1A01CE7541A00377F2D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -68,6 +70,7 @@
 		7E78E19D1CE7541A00377F2D /* Gigapet */ = {
 			isa = PBXGroup;
 			children = (
+				7E6CF2CB1CE8DC4C002EE6F2 /* Minecraft.ttf */,
 				7E78E1BA1CE8583100377F2D /* bite.wav */,
 				7E78E1BB1CE8583100377F2D /* cave-music.mp3 */,
 				7E78E1BC1CE8583100377F2D /* death.wav */,
@@ -147,6 +150,7 @@
 				7E78E1C31CE8583100377F2D /* skull.wav in Resources */,
 				7E78E1BF1CE8583100377F2D /* bite.wav in Resources */,
 				7E78E1C11CE8583100377F2D /* death.wav in Resources */,
+				7E6CF2CC1CE8DC4C002EE6F2 /* Minecraft.ttf in Resources */,
 				7E78E1C21CE8583100377F2D /* heart.wav in Resources */,
 				7E78E1C01CE8583100377F2D /* cave-music.mp3 in Resources */,
 				7E78E1A91CE7541A00377F2D /* LaunchScreen.storyboard in Resources */,
@@ -315,6 +319,7 @@
 				7E78E1AF1CE7541A00377F2D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

@@ -5,6 +5,11 @@
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="9530"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <mutableArray key="Minecraft.ttf">
+            <string>Minecraft</string>
+        </mutableArray>
+    </customFonts>
     <scenes>
         <!--View Controller-->
         <scene sceneID="tne-QT-ifu">
@@ -98,6 +103,20 @@
                                     </mask>
                                 </variation>
                             </stackView>
+                            <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="xMr-wS-ZC8">
+                                <rect key="frame" x="248" y="266" width="104" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="30" id="Ojr-a7-kax"/>
+                                    <constraint firstAttribute="width" constant="104" id="fDw-2q-oRu"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="Minecraft" family="Minecraft" pointSize="20"/>
+                                <state key="normal" title="RESTART">
+                                    <color key="titleColor" red="0.99851895729999995" green="0.99851895729999995" blue="0.99851895729999995" alpha="1" colorSpace="calibratedRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="onRestartTapped:" destination="BYZ-38-t0r" eventType="touchUpInside" id="ELy-lk-cFB"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
@@ -109,29 +128,39 @@
                             <constraint firstItem="oc6-Ve-SOh" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="CZF-cI-6wu"/>
                             <constraint firstItem="m05-8g-Zqz" firstAttribute="centerX" secondItem="mow-Qh-ce2" secondAttribute="centerX" id="GXd-qq-Sl7"/>
                             <constraint firstItem="oc6-Ve-SOh" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" constant="8" id="JX7-J0-Dfl"/>
+                            <constraint firstAttribute="trailingMargin" secondItem="xMr-wS-ZC8" secondAttribute="trailing" constant="30" id="Jff-sf-kuv"/>
                             <constraint firstAttribute="trailingMargin" secondItem="oc6-Ve-SOh" secondAttribute="trailing" id="KLd-Cs-zq9"/>
                             <constraint firstItem="5vF-Ws-unL" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" constant="-40" id="NeX-N3-XTl"/>
                             <constraint firstItem="Yft-ig-kES" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="SEB-w1-3Wl"/>
+                            <constraint firstItem="xMr-wS-ZC8" firstAttribute="top" secondItem="oc6-Ve-SOh" secondAttribute="bottom" constant="57" id="Sdf-SM-fbo"/>
+                            <constraint firstItem="8oW-Le-P5M" firstAttribute="top" secondItem="xMr-wS-ZC8" secondAttribute="bottom" constant="17" id="Ul7-DT-c1X"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="5vF-Ws-unL" secondAttribute="bottom" constant="41" id="Ycf-ih-yHY"/>
                             <constraint firstItem="Yft-ig-kES" firstAttribute="top" secondItem="8bC-Xf-vdC" secondAttribute="top" id="a54-wA-exs"/>
                             <constraint firstItem="mow-Qh-ce2" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="dlm-Ha-zZT"/>
                             <constraint firstAttribute="trailing" secondItem="8oW-Le-P5M" secondAttribute="trailing" id="e9g-Yf-n9z"/>
                             <constraint firstItem="m05-8g-Zqz" firstAttribute="centerY" secondItem="mow-Qh-ce2" secondAttribute="centerY" id="fdH-79-fTf"/>
                             <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="8oW-Le-P5M" secondAttribute="bottom" id="jx6-mc-wGE"/>
+                            <constraint firstItem="xMr-wS-ZC8" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="lck-p8-Cbt"/>
                             <constraint firstItem="mow-Qh-ce2" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="whA-qY-HfT"/>
                         </constraints>
                         <variation key="default">
                             <mask key="constraints">
+                                <exclude reference="Ul7-DT-c1X"/>
                                 <exclude reference="CZF-cI-6wu"/>
                                 <exclude reference="JX7-J0-Dfl"/>
                                 <exclude reference="KLd-Cs-zq9"/>
+                                <exclude reference="Jff-sf-kuv"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=compact">
                             <mask key="constraints">
+                                <include reference="Ul7-DT-c1X"/>
                                 <exclude reference="9Mq-gv-iYr"/>
                                 <include reference="JX7-J0-Dfl"/>
                                 <include reference="KLd-Cs-zq9"/>
+                                <include reference="Jff-sf-kuv"/>
+                                <exclude reference="Sdf-SM-fbo"/>
+                                <exclude reference="lck-p8-Cbt"/>
                             </mask>
                         </variation>
                         <variation key="heightClass=regular-widthClass=compact">
@@ -147,6 +176,7 @@
                         <outlet property="penalty2Img" destination="QEj-p2-gCh" id="Miz-SB-0nr"/>
                         <outlet property="penalty3Img" destination="qTr-64-6Cl" id="8nN-BK-eaC"/>
                         <outlet property="penaltyiImg" destination="O0y-Bz-Pn1" id="hUt-zy-vtp"/>
+                        <outlet property="restartBtn" destination="xMr-wS-ZC8" id="UxX-fg-Zjf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
