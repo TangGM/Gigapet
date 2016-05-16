@@ -39,6 +39,8 @@ class ViewController: UIViewController {
     var sfxHeart: AVAudioPlayer!
     var sfxDeath: AVAudioPlayer!
     var sfxSkull: AVAudioPlayer!
+    var sfxDowngrade: AVAudioPlayer!
+    var sfxUpgrade: AVAudioPlayer!
     
     
     override func viewDidLoad() {
@@ -65,6 +67,9 @@ class ViewController: UIViewController {
             try sfxHeart = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("heart", ofType: "wav")!))
             try sfxSkull = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("skull", ofType: "wav")!))
             try sfxBite = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("bite", ofType: "wav")!))
+            try sfxDowngrade = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("downgrade", ofType: "wav")!))
+            try sfxUpgrade = AVAudioPlayer(contentsOfURL: NSURL(fileURLWithPath: NSBundle.mainBundle().pathForResource("upgrade", ofType: "wav")!))
+            
 
             musicPlayer.prepareToPlay()
             musicPlayer.play()
@@ -72,6 +77,8 @@ class ViewController: UIViewController {
             sfxSkull.prepareToPlay()
             sfxHeart.prepareToPlay()
             sfxBite.prepareToPlay()
+            sfxUpgrade.prepareToPlay()
+            sfxDowngrade.prepareToPlay()
             
             
         } catch let err as NSError {
@@ -100,6 +107,7 @@ class ViewController: UIViewController {
         if love == 7 || love == 8 {
             love += 3
             exploImg.hidden = false
+            sfxUpgrade.play()
             exploImg.playExploAnimation()
             NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "upgrade", userInfo: nil, repeats: false)
         }
@@ -142,6 +150,7 @@ class ViewController: UIViewController {
                 } else {
                     exploImg.hidden = false
                     exploImg.playReverseExploAnimation()
+                    sfxDowngrade.play()
                     NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "downgrade", userInfo: nil, repeats: false)
                 }
             }

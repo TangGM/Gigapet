@@ -21,6 +21,8 @@
 		7E78E1C11CE8583100377F2D /* death.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7E78E1BC1CE8583100377F2D /* death.wav */; };
 		7E78E1C21CE8583100377F2D /* heart.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7E78E1BD1CE8583100377F2D /* heart.wav */; };
 		7E78E1C31CE8583100377F2D /* skull.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7E78E1BE1CE8583100377F2D /* skull.wav */; };
+		7EBA14631CE98A65004135B7 /* upgrade.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA14621CE98A65004135B7 /* upgrade.wav */; };
+		7EBA14651CE98AAC004135B7 /* downgrade.wav in Resources */ = {isa = PBXBuildFile; fileRef = 7EBA14641CE98AAC004135B7 /* downgrade.wav */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +42,8 @@
 		7E78E1BC1CE8583100377F2D /* death.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = death.wav; sourceTree = "<group>"; };
 		7E78E1BD1CE8583100377F2D /* heart.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = heart.wav; sourceTree = "<group>"; };
 		7E78E1BE1CE8583100377F2D /* skull.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = skull.wav; sourceTree = "<group>"; };
+		7EBA14621CE98A65004135B7 /* upgrade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = upgrade.wav; sourceTree = "<group>"; };
+		7EBA14641CE98AAC004135B7 /* downgrade.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = downgrade.wav; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -75,6 +79,8 @@
 				7E6CF2CB1CE8DC4C002EE6F2 /* Minecraft.ttf */,
 				7E78E1BA1CE8583100377F2D /* bite.wav */,
 				7E78E1BB1CE8583100377F2D /* cave-music.mp3 */,
+				7EBA14621CE98A65004135B7 /* upgrade.wav */,
+				7EBA14641CE98AAC004135B7 /* downgrade.wav */,
 				7E78E1BC1CE8583100377F2D /* death.wav */,
 				7E78E1BD1CE8583100377F2D /* heart.wav */,
 				7E78E1BE1CE8583100377F2D /* skull.wav */,
@@ -157,8 +163,10 @@
 				7E78E1C21CE8583100377F2D /* heart.wav in Resources */,
 				7E78E1C01CE8583100377F2D /* cave-music.mp3 in Resources */,
 				7E78E1A91CE7541A00377F2D /* LaunchScreen.storyboard in Resources */,
+				7EBA14631CE98A65004135B7 /* upgrade.wav in Resources */,
 				7E78E1A61CE7541A00377F2D /* Assets.xcassets in Resources */,
 				7E78E1A41CE7541A00377F2D /* Main.storyboard in Resources */,
+				7EBA14651CE98AAC004135B7 /* downgrade.wav in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
