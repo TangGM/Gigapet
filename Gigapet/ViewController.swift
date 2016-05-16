@@ -32,8 +32,7 @@ class ViewController: UIViewController {
     var timer: NSTimer!
     var monsterHappy = false
     var currentItem: UInt32 = 0
-    var status = 0
-    
+    var status = 0 // monster status
     var musicPlayer: AVAudioPlayer!
     // use similar name for autocomplete search
     var sfxBite: AVAudioPlayer!
@@ -44,16 +43,12 @@ class ViewController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
-
         foodImg.dropTarget = monsterImg
         heartImg.dropTarget = monsterImg
         
         penaltyiImg.alpha = DIM_ALPHA
         penalty2Img.alpha = DIM_ALPHA
         penalty3Img.alpha = DIM_ALPHA
-        
-        
         
         // selector的函數名稱要加冒號，這表示該函數有一個或一個以上的參數
         // 而NSNotificationCenter會傳入一個NSNotification Object，所以需要冒號
@@ -82,15 +77,11 @@ class ViewController: UIViewController {
         } catch let err as NSError {
             print (err.debugDescription)
         }
-        
-        
         startTimer()
     }
     
-    
     func itemDroppedOnCharacter(notif: AnyObject) {
-
-
+        
         monsterHappy = true
         startTimer()
         
@@ -106,7 +97,6 @@ class ViewController: UIViewController {
             love += 3
             sfxBite.play()
         }
-        
         if love == 7 || love == 8 {
             love += 3
             exploImg.hidden = false
@@ -123,7 +113,6 @@ class ViewController: UIViewController {
         // reset the timer
         timer = NSTimer.scheduledTimerWithTimeInterval(3.0, target: self, selector: "changeGameState", userInfo: nil, repeats: true)
     }
-
     
     func changeGameState() {
         
@@ -148,9 +137,14 @@ class ViewController: UIViewController {
             }
             
             if penalties >= MAX_PENALTIES {
-                gameOver()
+                if status == 0 {
+                    gameOver()
+                } else {
+                    exploImg.hidden = false
+                    exploImg.playReverseExploAnimation()
+                    NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "downgrade", userInfo: nil, repeats: false)
+                }
             }
-            
         }
         
         let rand = arc4random_uniform(2) // 0 or 1
@@ -186,23 +180,27 @@ class ViewController: UIViewController {
     func upgrade() {
     
         exploImg.hidden = true
-//        monsterImg.hidden = true
+        monsterImg.playBigIdleAnimation()
         status = 1
         penalties = 0
         penaltyiImg.alpha = DIM_ALPHA
         penalty2Img.alpha = DIM_ALPHA
         penalty3Img.alpha = DIM_ALPHA
-
+        print (status)
+        print (penalties)
     }
     
     func downgrade() {
-        exploImg.hidden = false
-        exploImg.playReverseExploAnimation()
+        love = 0
+        exploImg.hidden = true
+        monsterImg.playIdleAnimation()
         status = 0
         penalties = 0
         penaltyiImg.alpha = DIM_ALPHA
         penalty2Img.alpha = DIM_ALPHA
         penalty3Img.alpha = DIM_ALPHA
+        print (status)
+        print (penalties)
     }
     
     @IBAction func onRestartTapped(sender: AnyObject) {

@@ -40,6 +40,23 @@ class MonsterImg: UIImageView {
         self.startAnimating()
     }
     
+    func playBigIdleAnimation() {
+        self.image = UIImage(named: "blue_idle (1).png")
+        
+        var imgArr = [UIImage]()
+        
+        for var x = 1; x <= 4; x++ {
+            let img = UIImage(named: "blue_idle (\(x)).png")
+            imgArr.append(img!)
+        }
+        
+        self.animationImages = imgArr
+        self.animationDuration = 0.8
+        self.animationRepeatCount = 0 // infinite loop
+        self.startAnimating()
+
+    }
+    
     func playDeathAnimation() {
         
         self.image = UIImage(named: "dead5.png")
