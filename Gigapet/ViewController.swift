@@ -107,7 +107,8 @@ class ViewController: UIViewController {
             sfxBite.play()
         }
         
-        if love >= 7 {
+        if love == 7 || love == 8 {
+            love += 3
             exploImg.hidden = false
             exploImg.playExploAnimation()
             NSTimer.scheduledTimerWithTimeInterval(1.5, target: self, selector: "upgrade", userInfo: nil, repeats: false)
@@ -207,7 +208,10 @@ class ViewController: UIViewController {
     @IBAction func onRestartTapped(sender: AnyObject) {
         
         penalties = 0
-        viewDidLoad()
+        penaltyiImg.alpha = DIM_ALPHA
+        penalty2Img.alpha = DIM_ALPHA
+        penalty3Img.alpha = DIM_ALPHA
+        startTimer()
         restartBtn.hidden = true
         monsterImg.playIdleAnimation()
         
